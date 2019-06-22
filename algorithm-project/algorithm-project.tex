@@ -47,6 +47,7 @@
 \fancyhead[RO]{Team 25}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{\textwidth}
+\vspace{6mm}
 }
 \title{Logistic service scheduling}
 \author{Name: Yiting Chen  ID: 517021910169 Email: ytchen981@163.com 
@@ -63,13 +64,24 @@ Reasonable scheduling of logistics service supply chain is essential. To minimiz
 \newpage
 \ \\
 \section{Introduction}
-Nowadays logistics enterprises provide mass customization logistics services(MCLS) which allows customer to  request customization service or mass service. To provide better service, the logistics service integrator need to reduce the cost, satisfy the customers' time requirement and keep functional logistic service providers satisfied. Our report focus on the schedule model in the two-echelon logistic service supply chain. In this problem
+Nowadays logistics enterprises provide mass customization logistics services(MCLS) which allows customer to  request customization service or mass service. To provide better service, the logistics service integrator need to reduce the cost, satisfy the customers' time requirement and keep functional logistic service providers satisfied. Our report focus on the schedule model in the two-echelon logistic service supply chain. This paper is organized as follows. In \textbf{section 2}, we introduce our schedule model regarding the problem. In \textbf{section 3}, we analyze the problem and the algorithm to solve the problem. In \textbf{section 4}, we analyze the time complexity of the algorithm and evaluate the performance of our model with the given data. The reference section and acknowledge section are given respectively at the end. 
 
 \section{Model building}
-\subsection{Problem describing}
-Assume there is a two-echelon logistics service supply chain(LSSC) with one logistics service integrator(LSI) and many functional logistic service providers(FLSP). The LSI may receive many orders from customers at a time. Each order consists of multiple service processes, which can be divided into two types, the customized service process and the mass service process. The service process of customers is conducted either being integrated into the mass service process or being operated independently as customized service. The LSI analyses the demand from customer and inquires the FLSPs of each service process about the time window for completing the service process.Then the LSI needs to schedule the orders and determine which process are conducted in mass mode and which are in customized mode.
-In this problem we consider a fixed CODP. For example 
-
+\subsection{Problem describing}    
+Assume there is a two-echelon logistics service supply chain(LSSC) with one logistics service integrator(LSI) and many functional logistic service providers(FLSP). The LSI may receive many orders from customers at a time. Each order consists of multiple service processes, which can be divided into two types, the customized service process and the mass service process. The service process of customers is conducted either being integrated into the mass service process or being operated independently as customized service. The LSI analyses the demand from customer and inquires the FLSPs of each service process about the time window for completing the service process.Then the LSI needs to schedule the orders and determine which process are conducted in mass mode and which are in customized mode.For example, there are three customers:
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/fig1.png}
+\caption{Example of customer requeset}
+\end{figure}
+Then the LSI would determine the CODP and execute some of the processes in mass service and others in customized service.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/fig2.png}
+\caption{Demonstration of the actual service}
+\end{figure}
+Our goal is schedule the processes and met the goals.
+\newpage
 \subsection{Notation}
 The notation of the model are as follows:
 \begin{longtable}[b]{p{3cm}p{12cm}}
@@ -182,10 +194,10 @@ As for restraints:
 \end{equation}
 Because $Z_2\in \{0,1\}$.Simplify the multiobjective programming model, We get:
 \begin{alignat}{2}
-\min \quad & K_1Z_1+K_2(1-Z_2)\\
+\min \quad & K_1Z_1+K_2Z_1^{min}(1-Z_2)\\
 \mbox{s.t.}\quad
 & T_{i+1}^-\leq T_i^{exp}-T_i-T_i^{ext}\leq T_{i+1}^+ \quad ,i\leq k-1\\
-& T_{(i+1)j}^-\leq T_{ij}^{exp}-T_{ij}-T_{ij}^{ext}\leq T_{(i+1)j}^+ \quad, i>k\\
+& T_{(i+1)j}^-\leq T_{ij}^{exp}-T_{ij}-T_{ij}^{ext}\leq T_{(i+1)j}^+ \quad, i\geq k\\
 & (1-|\frac{T_i^{exp}-T_i}{T_i^{exp}}|)(\frac{T_iC_i}{T_iC_i+T_i^{ext}C_i^{ext}})\geq U_i\\
 & (1-|\frac{T_{ij}^{exp}-T_{ij}}{T_{ij}^{exp}}|)(\frac{T_{ij}C_{ij}}{T_{ij}C_{ij}+T_{ij}^{ext}C_{ij}^{ext}})\geq U_{ij}\\
 \end{alignat}
@@ -214,7 +226,7 @@ Considering the requirement of the customer we also add a constraint of the time
 \mbox{s.t.}\quad
 & T_j\leq T_j^{exp}(1+\beta)\\
 & T_{i+1}^-\leq T_i^{exp}-T_i-T_i^{ext}\leq T_{i+1}^+ \quad ,i\leq k-1\\
-& T_{(i+1)j}^-\leq T_{ij}^{exp}-T_{ij}-T_{ij}^{ext}\leq T_{(i+1)j}^+ \quad, i>k\\
+& T_{(i+1)j}^-\leq T_{ij}^{exp}-T_{ij}-T_{ij}^{ext}\leq T_{(i+1)j}^+ \quad, i\geq k\\
 & (1-|\frac{T_i^{exp}-T_i}{T_i^{exp}}|)(\frac{T_iC_i}{T_iC_i+T_i^{ext}C_i^{ext}})\geq U_i\\
 & (1-|\frac{T_{ij}^{exp}-T_{ij}}{T_{ij}^{exp}}|)(\frac{T_{ij}C_{ij}}{T_{ij}C_{ij}+T_{ij}^{ext}C_{ij}^{ext}})\geq U_{ij}\\
 & Z_1\leq Z_{1min}
@@ -225,7 +237,7 @@ convert it into LP:
 \mbox{s.t.}\quad
 & T_j\leq T_j^{exp}(1+\beta)\\
 & T_{i+1}^-\leq T_i^{exp}-T_i-T_i^{ext}\leq T_{i+1}^+ \quad ,i\leq k-1\\
-& T_{(i+1)j}^-\leq T_{ij}^{exp}-T_{ij}-T_{ij}^{ext}\leq T_{(i+1)j}^+ \quad, i>k\\
+& T_{(i+1)j}^-\leq T_{ij}^{exp}-T_{ij}-T_{ij}^{ext}\leq T_{(i+1)j}^+ \quad, i\geq k\\
 & (1-|\frac{T_i^{exp}-T_i}{T_i^{exp}}|)^{-1}(1+\frac{T_i^{ext}C_i^{ext}}{T_iC_i})\leq U_i^{-1}\\
 & (1-|\frac{T_{ij}^{exp}-T_{ij}}{T_{ij}^{exp}}|)^{-1}(\frac{T_{ij}^{ext}C_{ij}^{ext}}{T_{ij}C_{ij}})\leq U_{ij}^{-1}\\
 & Z_1\leq Z_{1min}
