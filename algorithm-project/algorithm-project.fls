@@ -216,6 +216,9 @@ INPUT d:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT figures/sol_alg1.png
 INPUT ./figures/sol_alg1.png
 INPUT ./figures/sol_alg1.png
+INPUT figures/different_c.pdf
+INPUT ./figures/different_c.pdf
+INPUT ./figures/different_c.pdf
 INPUT algorithm-project.aux
 INPUT ./algorithm-project.out
 INPUT ./algorithm-project.out

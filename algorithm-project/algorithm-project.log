@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.26)  22 JUN 2019 22:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.26)  22 JUN 2019 23:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -578,30 +578,36 @@ File: figures/sol_alg1.png Graphic file (type png)
 Package pdftex.def Info: figures/sol_alg1.png  used on input line 313.
 (pdftex.def)             Requested size: 404.71353pt x 178.28708pt.
  [9 <./figures/sol_alg1.png (PNG copy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 331.
- [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 331.
+<figures/different_c.pdf, id=193, 381.425pt x 254.9525pt>
+File: figures/different_c.pdf Graphic file (type pdf)
+<use figures/different_c.pdf>
+Package pdftex.def Info: figures/different_c.pdf  used on input line 323.
+(pdftex.def)             Requested size: 404.71353pt x 270.52844pt.
+ [10 <./figures/different_c.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 334.
+ [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 334.
  (./algorithm-project.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 331.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 331.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 334.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 334.
 Package rerunfilecheck Info: File `algorithm-project.out' has not changed.
 (rerunfilecheck)             Checksum: 07374E3AE8D2FE662D0ED6205317F1AC;1307.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 331.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 334.
  ) 
 Here is how much of TeX's memory you used:
- 8572 strings out of 492616
- 122558 string characters out of 6132768
+ 8578 strings out of 492616
+ 122715 string characters out of 6132768
  246425 words of memory out of 5000000
- 12250 multiletter control sequences out of 15000+600000
+ 12254 multiletter control sequences out of 15000+600000
  20218 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  32i,16n,43p,882b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2018/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on algorithm-project.pdf (10 pages, 265547 bytes).
+Output written on algorithm-project.pdf (11 pages, 587215 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 235 compressed objects within 3 object streams
- 79 named destinations out of 1000 (max. 500000)
- 128 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 294 PDF objects out of 1000 (max. 8388607)
+ 250 compressed objects within 3 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

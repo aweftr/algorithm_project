@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1561214051 "algorithm-project.tex" "algorithm-project.pdf" "algorithm-project" 1561214052
-  "algorithm-project.aux" 1561214052 3661 60c522ba1107d1ec4a4e3a7dea4d7fa0 ""
-  "algorithm-project.out" 1561214052 1307 07374e3ae8d2fe662d0ed6205317f1ac ""
-  "algorithm-project.tex" 1561214048 18563 52b3f72e03a5e1d40721621fe0d4b9c3 ""
-  "algorithm-project.toc" 1561214052 1571 b13b37fd125f3289020910f71bd4439e ""
+["pdflatex"] 1561217381 "algorithm-project.tex" "algorithm-project.pdf" "algorithm-project" 1561217382
+  "algorithm-project.aux" 1561217382 3661 b2e75d11a6953703f92e8418caecf9a1 ""
+  "algorithm-project.out" 1561217382 1307 07374e3ae8d2fe662d0ed6205317f1ac ""
+  "algorithm-project.tex" 1561217380 18841 47cac2b368ff91ed12e7691164eaa1c8 ""
+  "algorithm-project.toc" 1561217382 1571 b13b37fd125f3289020910f71bd4439e ""
   "d:/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1548473095 3332 103109f5612ad95229751940c61aada0 ""
   "d:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1548472192 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "d:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1548472192 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -123,12 +123,13 @@
   "d:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1548475362 3219883 5a23246462691264a120cb83cb02d726 ""
   "d:/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1548475579 4223237 902a9dbb518042be6e149e1c1c6078ca ""
   "d:/texlive/2018/texmf.cnf" 1548475222 673 4ae7b2f49cee444c5343a45b5d0f169c ""
+  "figures/different_c.pdf" 1561217177 368731 44858ac5b1c0d07806c39701ef76a71d ""
   "figures/fig1.png" 1561189329 33500 db5a8ec8348313ca2fb4d8adfefae5a5 ""
   "figures/fig2.png" 1561189329 47820 4fcc81c33e682b2ca4abdb030bd6420b ""
   "figures/sol_alg1.png" 1561208634 25213 068ba506e1357624a71b8778dc0d1fb0 ""
   (generated)
-  "algorithm-project.aux"
-  "algorithm-project.toc"
-  "algorithm-project.log"
   "algorithm-project.pdf"
   "algorithm-project.out"
+  "algorithm-project.toc"
+  "algorithm-project.log"
+  "algorithm-project.aux"
