@@ -29,7 +29,7 @@
 \newcommand{\postscript}[2]
  {\setlength{\epsfxsize}{#2\hsize}
   \centerline{\epsfbox{#1}}}
-  
+
 
 \renewcommand{\baselinestretch}{1.0}
 
@@ -50,7 +50,8 @@
 \vspace{6mm}
 }
 \title{Logistic service scheduling}
-\author{Name: Yiting Chen  ID: 517021910169 Email: ytchen981@163.com 
+\author{Name: Yiting Chen  ID: 517021910169 Email: ytchen981@163.com\\
+Name: Yunlong Cheng   ID: 517021910332 Email: aweftr@sjtu.edu.cn
  }
 \date{\today}
 
@@ -64,10 +65,10 @@ Reasonable scheduling of logistics service supply chain is essential. To minimiz
 \newpage
 \ \\
 \section{Introduction}
-Nowadays logistics enterprises provide mass customization logistics services(MCLS) which allows customer to  request customization service or mass service. To provide better service, the logistics service integrator need to reduce the cost, satisfy the customers' time requirement and keep functional logistic service providers satisfied. Our report focus on the schedule model in the two-echelon logistic service supply chain. This paper is organized as follows. In \textbf{section 2}, we introduce our schedule model regarding the problem. In \textbf{section 3}, we analyze the problem and the algorithm to solve the problem. In \textbf{section 4}, we analyze the time complexity of the algorithm and evaluate the performance of our model with the given data. The reference section and acknowledge section are given respectively at the end. 
+Nowadays logistics enterprises provide mass customization logistics services(MCLS) which allows customer to  request customization service or mass service. To provide better service, the logistics service integrator need to reduce the cost, satisfy the customers' time requirement and keep functional logistic service providers satisfied. Our report focus on the schedule model in the two-echelon logistic service supply chain. This paper is organized as follows. In \textbf{section 2}, we introduce our schedule model regarding the problem. In \textbf{section 3}, we analyze the problem and the algorithm to solve the problem. In \textbf{section 4}, we analyze the time complexity of the algorithm and evaluate the performance of our model with the given data. The reference section and acknowledge section are given respectively at the end.
 
 \section{Model building}
-\subsection{Problem describing}    
+\subsection{Problem describing}
 Assume there is a two-echelon logistics service supply chain(LSSC) with one logistics service integrator(LSI) and many functional logistic service providers(FLSP). The LSI may receive many orders from customers at a time. Each order consists of multiple service processes, which can be divided into two types, the customized service process and the mass service process. The service process of customers is conducted either being integrated into the mass service process or being operated independently as customized service. The LSI analyses the demand from customer and inquires the FLSPs of each service process about the time window for completing the service process.Then the LSI needs to schedule the orders and determine which process are conducted in mass mode and which are in customized mode.For example, there are three customers:
 \begin{figure}[h]
 \centering
@@ -100,7 +101,7 @@ $T_{ij}^{exp}$ & The expect time for FLSP to complete $i$th process in customize
 \specialrule{0.05em}{3pt}{3pt}
 $T_{ij}$ & The actual time FLSP takes to complete $i$th process in customized mode for customer $j$\\
 \specialrule{0.05em}{3pt}{3pt}
-$T_{ij}^{ext}$ & The time LSI scheduled for customer $j$ in $i$th process\\ 
+$T_{ij}^{ext}$ & The time LSI scheduled for customer $j$ in $i$th process\\
 \specialrule{0.05em}{3pt}{3pt}
 $T_j^{exp}$ & The custmoer $j$'s expected completion time\\
 \specialrule{0.05em}{3pt}{3pt}
@@ -142,7 +143,7 @@ $Y_j$ & The number of orders from $j$th customer\\
 \specialrule{0.05em}{3pt}{3pt}
 $c$ & The cost coefficient\\
 \specialrule{0.05em}{3pt}{3pt}
-$\beta$ & The requirement coefficient\\ 
+$\beta$ & The requirement coefficient\\
 \specialrule{0.05em}{3pt}{3pt}
 $I_j$ & The number of processes in $j$th customer's order\\
 \specialrule{0.05em}{3pt}{3pt}
@@ -184,7 +185,7 @@ We define the satisfaction $Z_2$ via the relationship between the expected time 
 	Z_2=(\sum_{i=1}^{i=k-1}(1-|\frac{T_i^{exp}-T_i}{T_i^{exp}}|)(\frac{T_iC_i}{T_iC_i+T_i^{ext}C_i^{ext}})+\sum_{i=k}^{I_j}\sum_{j=1}^{J_0}(1-|\frac{T_{ij}^{exp}-T_{ij}}{T_{ij}^{exp}}|)(\frac{T_{ij}C_{ij}}{T_{ij}C_{ij}+T_{ij}^{ext}C_{ij}^{ext}}))\\
 	\times(k-1+\sum_{j=1}^{J_0}(I_j-(k-1)))^{-1}
 \end{split}
-\end{equation} 
+\end{equation}
 As for restraints:
 \begin{equation}
 	T_{i+1}^-\leq T_i^{exp}-T_i-T_i^{ext}\leq T_{i+1}^+ \quad ,i\leq k-1\\
@@ -214,17 +215,17 @@ $K_1$ and $K_2$ represents the weight of $Z_1$ and $Z_2$.
 Considering the relationship between time windows of supplier operation and customer requirement, we introduce a new variable $Z_3$ to describe the closeness of the actual order completion time and its customer requirement.
 \begin{equation}
 	Z_3=\sum_{j=1}^{J_0}|\frac{T_j^{exp}-T_j}{T_j^{exp}}|\times\frac{Y_j}{Y}
-\end{equation} 
+\end{equation}
 where
 \begin{equation}
 	T_j=\sum_{i=1}^{I_j}(T_i+T_i^{ext}+T_{ij}+T_{ij}^{ext})
 \end{equation}
 $T_j$ is the actual time to complete customer$j$'s order.\\
-Hence, there are three objects. To simplify the multiobjective programming model, we restrain $Z_1$ to 
+Hence, there are three objects. To simplify the multiobjective programming model, we restrain $Z_1$ to
 \begin{equation}
  Z_1\leq Z_1^{min}\times(1+c)
-\end{equation} 
-where $c$ is the cost coefficient and 
+\end{equation}
+where $c$ is the cost coefficient and
 \begin{equation}
 Z_1^{min}= \sum_{i=1}^{i=k-1}T_iC_i\times Y+\sum_{i=k}^{I_j}\sum_{j=1}^{J_0}(T_{ij}C_{ij})\times Y_j
 \end{equation}
