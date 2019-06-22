@@ -82,6 +82,7 @@ Then the LSI would determine the CODP and execute some of the processes in mass 
 \end{figure}
 Our goal is schedule the processes and met the goals.
 \newpage
+
 \subsection{Notation}
 The notation of the model are as follows:
 \begin{longtable}[b]{p{3cm}p{12cm}}
@@ -149,6 +150,7 @@ $J_0$ & The number of customers\\
 			\hline
 \caption{notation of the model}
 \end{longtable}
+
 \subsection{Assumption}
 According to the description we have following assumptions:
 \begin{enumerate}
@@ -191,7 +193,7 @@ As for restraints:
 	T_{(i+1)j}^-\leq T_{ij}^{exp}-T_{ij}-T_{ij}^{ext}\leq T_{(i+1)j}^+ \quad, i>k\\
 \end{equation}
 \begin{equation}
-	(1-|\frac{T_i^{exp}-T_i}{T_i^{exp}}|)(\frac{T_iC_i}{T_iC_i+T_i^{ext}C_i^{ext}})\geq U_i\\
+	(1-|\frac{T_i^{exp}-T_i}{T_i^{exp}}|)(\frac{T_iC_i}{T_iC_i+|T_i^{ext}|C_i^{ext}})\geq U_i\\
 \end{equation}
 \begin{equation}
 	(1-|\frac{T_{ij}^{exp}-T_{ij}}{T_{ij}^{exp}}|)(\frac{T_{ij}C_{ij}}{T_{ij}C_{ij}+T_{ij}^{ext}C_{ij}^{ext}})\geq U_{ij}\\
@@ -202,14 +204,16 @@ Because $Z_2\in \{0,1\}$.Simplify the multiobjective programming model, We get:
 \mbox{s.t.}\quad
 & T_{i+1}^-\leq T_i^{exp}-T_i-T_i^{ext}\leq T_{i+1}^+ \quad ,i\leq k-1\\
 & T_{(i+1)j}^-\leq T_{ij}^{exp}-T_{ij}-T_{ij}^{ext}\leq T_{(i+1)j}^+ \quad, i\geq k\\
-& (1-|\frac{T_i^{exp}-T_i}{T_i^{exp}}|)(\frac{T_iC_i}{T_iC_i+T_i^{ext}C_i^{ext}})\geq U_i\\
-& (1-|\frac{T_{ij}^{exp}-T_{ij}}{T_{ij}^{exp}}|)(\frac{T_{ij}C_{ij}}{T_{ij}C_{ij}+T_{ij}^{ext}C_{ij}^{ext}})\geq U_{ij}\\
+& (1-|\frac{T_i^{exp}-T_i}{T_i^{exp}}|)(\frac{T_iC_i}{T_iC_i+|T_i^{ext}|C_i^{ext}})\geq U_i\\
+& (1-|\frac{T_{ij}^{exp}-T_{ij}}{T_{ij}^{exp}}|)(\frac{T_{ij}C_{ij}}{T_{ij}C_{ij}+|T_{ij}^{ext}|C_{ij}^{ext}})\geq U_{ij}\\
 \end{alignat}
 $K_1$ and $K_2$ represents the weight of $Z_1$ and $Z_2$.
+
+
 \subsubsection{The model with the Relationship between Time Windows of Supplier Operation and Customer Requirement}
 Considering the relationship between time windows of supplier operation and customer requirement, we introduce a new variable $Z_3$ to describe the closeness of the actual order completion time and its customer requirement.
 \begin{equation}
-	Z_3=\sum_{j=1}^{J_0}|\frac{T_j^{exp}-T_j}{T_j^{exp}}|\frac{1}{J_0}
+	Z_3=\sum_{j=1}^{J_0}|\frac{T_j^{exp}-T_j}{T_j^{exp}}|\times\frac{Y_j}{Y}
 \end{equation} 
 where
 \begin{equation}
@@ -222,7 +226,7 @@ Hence, there are three objects. To simplify the multiobjective programming model
 \end{equation} 
 where $c$ is the cost coefficient and 
 \begin{equation}
-Z_1^{min}= \sum_{i=1}^{i=k-1}T_iC_i\times Y+\sum_{i=k}^{I_j}\sum_{j=1}^{J_0}(T_{ij}C_{ij}\times Y_j
+Z_1^{min}= \sum_{i=1}^{i=k-1}T_iC_i\times Y+\sum_{i=k}^{I_j}\sum_{j=1}^{J_0}(T_{ij}C_{ij})\times Y_j
 \end{equation}
 Considering the requirement of the customer we also add a constraint of the time required by customers: $T_j\leq T_j^{exp}(1+\beta)$. Then we got:
 \begin{alignat}{2}
@@ -247,6 +251,8 @@ convert it into LP:
 & Z_1\leq Z_{1min}
 \end{alignat}
 $K_2$ and $K_3$ represents the weight of $Z_2$ and $Z_3$
+
+
 \section{Problem Analysis and Algorithm Design}
 Our defined problem is a multiple-objective programming problem. We simplify the problem with linear weight method and get the synthesized objective function. Our single-objective model could be converted into LP. Hence the defined problem should be in $P$ and we could use various algorithms to solve the problem. Using Ellipsoid Method the time complexity would be $O(n^6L^2)$ where $n$ is the dimension of variables and $L$ is the length of input. If we solve the problem using Interior-Point Method the time complexity would be $O(n^{3.5}L^2)$.\\
 For example, Barrier Method\cite{Convex}:\\
@@ -262,6 +268,7 @@ For example, Barrier Method\cite{Convex}:\\
 \end{algorithm}
 In this project we use Cplex to solve the LP problem.
 \newpage
+
 \section{Theoretical Analysis and Performance Evaluation}
 \subsection{Theoretical Analysis}
 The time complexity is determined by the method we use to solve the LP problem. If we use simplex method, the time complexity is $O(2^n)$. If we use Ellipsoid Method the time complexity would be $O(n^6L^2)$. If we use Interior-Point Method, the time complexity would be $O(n^{3.5}L^2)$. We use Cplex to solve the LP problem.
@@ -275,6 +282,8 @@ The result is showed in the figures:\\
 In this model we have two coefficients $c$ and $\beta$.
 
 \section*{Acknowledgement}
+First of all we would like to express my gratitude to all those who helped us during the writing of this report. We have been working for several days and finally we finished our report. During the period, TA Fan and Peng answered those questions that bothered us. It's our honor and pleasure to attend professor Gao's algorithm class. It's a meaningful experience for us, and we learned a lot.
+
 \begin{thebibliography}{1}
 \bibitem{Liu}  Liu WH, Yang Y, Li X, Xu HT, Xie D. A time scheduling model of logistics service supply chain with mass customized logistics service. Discrete Dynamics in Nature and Society. 2012;2012:18 pages.482978
 \bibitem{Convex} Stephen Boyd,Lieven Vandenberghe. Convex Optimization [M]
