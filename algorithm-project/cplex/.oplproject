@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?><project>
+	<version>1.0</version>
+	<configs>
+		<config default="true" name="Configuration1" category="opl">
+			<ref name="model-algorithm.mod" type="model">
+			</ref>
+			<ref name="data-algorithm1.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="Configuration2" category="opl">
+			<ref name="model-with-relation-algorithm.mod" type="model">
+			</ref>
+			<ref name="data-algorithm2.dat" type="data">
+			</ref>
+		</config>
+	</configs>
+	
+</project>
