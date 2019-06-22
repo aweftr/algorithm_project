@@ -29,9 +29,7 @@
 \newcommand{\postscript}[2]
  {\setlength{\epsfxsize}{#2\hsize}
   \centerline{\epsfbox{#1}}}
-\pagestyle{plain}{
-\chead{report of project2}
-\cfoot{\thepage}
+  
 
 \renewcommand{\baselinestretch}{1.0}
 
@@ -42,26 +40,36 @@
 \setlength{\headsep}{0in}
 \setlength{\textheight}{10.1in}
 \setlength{\textwidth}{7in}
+
+\pagestyle{fancy}{
+\lhead{}
+\chead{report of project2}
+\fancyhead[RO]{Team 25}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{\textwidth}
+}
 \title{Logistic service scheduling}
-\author{Name: Yiting Chen ID: 517021910169 Email: ytchen981@163.com 
+\author{Name: Yiting Chen  ID: 517021910169 Email: ytchen981@163.com 
  }
 \date{\today}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-Reasonable scheduling of logistics service supply chain is essential. To minimize the total cost of the service and maximize the satisfaction of the customers, we established two scheduling models based on the customer order decoupling point(CODP). One model ignores the relationship between the time window of supplier operation and the customer requirement, while the other one considering the relationship.
+Reasonable scheduling of logistics service supply chain is essential. To minimize the total cost of the service, minimize the difference between the total service time and the customers; requirement and maximize the satisfaction, we established two scheduling models with fixed customer order decoupling point(CODP). One model ignores the relationship between the time window of supplier operation and the customer requirement and focus on the cost and satisfaction, while the other one considering the relationship. We convert the multiple-objective programming model into a LP problem and solve it with Cplex.
 \end{abstract}
 \renewcommand{\contentsname}{catalog}
 \tableofcontents
 \newpage
-
+\ \\
 \section{Introduction}
-Nowadays logistics enterprises provide mass customization logistics services(MCLS) which allows customer to  request customization service or mass service.
+Nowadays logistics enterprises provide mass customization logistics services(MCLS) which allows customer to  request customization service or mass service. To provide better service, the logistics service integrator need to reduce the cost, satisfy the customers' time requirement and keep functional logistic service providers satisfied. Our report focus on the schedule model in the two-echelon logistic service supply chain.
 
 \section{Model building}
 \subsection{Problem describing}
 Assume there is a two-echelon logistics service supply chain(LSSC) with one logistics service integrator(LSI) and many functional logistic service providers(FLSP). The LSI may receive many orders from customers at a time. Each order consists of multiple service processes, which can be divided into two types, the customized service process and the mass service process. The service process of customers is conducted either being integrated into the mass service process or being operated independently as customized service. The LSI analyses the demand from customer and inquires the FLSPs of each service process about the time window for completing the service process.Then the LSI needs to schedule the orders and determine which process are conducted in mass mode and which are in customized mode.
+In this problem we consider a fixed CODP. For example 
+
 \subsection{Notation}
 The notation of the model are as follows:
 \begin{longtable}[b]{p{3cm}p{12cm}}
