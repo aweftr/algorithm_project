@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.1.12)  22 JUN 2019 15:21
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.1.12)  22 JUN 2019 15:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -564,24 +564,33 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
 Underfull \vbox (badness 10000) detected at line 129
  []
 
-[3] [4] [5] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 267.
- [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 267.
+[3] [4] [5] [6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 266--267
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 276.
+[8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 276.
  (./algorithm-project.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 267.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 267.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 276.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 276.
 Package rerunfilecheck Info: File `algorithm-project.out' has not changed.
-(rerunfilecheck)             Checksum: 14F6EDC2F6305D0A1C70F88E346BB5D0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 267.
+(rerunfilecheck)             Checksum: 86F4198D7DA547D7E71CC3CA3129D766.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 276.
  ) 
 Here is how much of TeX's memory you used:
- 11458 strings out of 492970
- 160127 string characters out of 6133938
- 269620 words of memory out of 5000000
- 15300 multiletter control sequences out of 15000+600000
+ 11460 strings out of 492970
+ 160154 string characters out of 6133938
+ 270217 words of memory out of 5000000
+ 15302 multiletter control sequences out of 15000+600000
  18806 words of font info for 88 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  32i,16n,45p,881b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on algorithm-project.pdf (7 pages).
+Output written on algorithm-project.pdf (8 pages).
