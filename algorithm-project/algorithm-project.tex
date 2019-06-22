@@ -142,6 +142,10 @@ $Y_j$ & The number of orders from $j$th customer\\
 $c$ & The cost coefficient\\
 \specialrule{0.05em}{3pt}{3pt}
 $\beta$ & The requirement coefficient\\ 
+\specialrule{0.05em}{3pt}{3pt}
+$I_j$ & The number of processes in $j$th customer's order\\
+\specialrule{0.05em}{3pt}{3pt}
+$J_0$ & The number of customers\\
 			\hline
 \caption{notation of the model}
 \end{longtable}
@@ -155,7 +159,7 @@ According to the description we have following assumptions:
 \end{enumerate}
 
 \subsection{Model Building}
-\subsubsection{Ignore Customer Requirement}
+\subsubsection{The model without the Relationship between Time Windows of Supplier Operation and Customer Requirement}
 In the problem, the object is to reduce the cost $Z_1$ and increase the satisfaction $Z_2$.
 We calculate the cost $Z_1$ as follows:
 \begin{equation}
@@ -202,7 +206,7 @@ Because $Z_2\in \{0,1\}$.Simplify the multiobjective programming model, We get:
 & (1-|\frac{T_{ij}^{exp}-T_{ij}}{T_{ij}^{exp}}|)(\frac{T_{ij}C_{ij}}{T_{ij}C_{ij}+T_{ij}^{ext}C_{ij}^{ext}})\geq U_{ij}\\
 \end{alignat}
 $K_1$ and $K_2$ represents the weight of $Z_1$ and $Z_2$.
-\subsubsection{considering  the Customer Requirement}
+\subsubsection{The model with the Relationship between Time Windows of Supplier Operation and Customer Requirement}
 Considering the relationship between time windows of supplier operation and customer requirement, we introduce a new variable $Z_3$ to describe the closeness of the actual order completion time and its customer requirement.
 \begin{equation}
 	Z_3=\sum_{j=1}^{J_0}|\frac{T_j^{exp}-T_j}{T_j^{exp}}|\frac{1}{J_0}
@@ -262,15 +266,18 @@ In this project we use Cplex to solve the LP problem.
 \subsection{Theoretical Analysis}
 The time complexity is determined by the method we use to solve the LP problem. If we use simplex method, the time complexity is $O(2^n)$. If we use Ellipsoid Method the time complexity would be $O(n^6L^2)$. If we use Interior-Point Method, the time complexity would be $O(n^{3.5}L^2)$. We use Cplex to solve the LP problem.
 \subsection{Performance Evaluation}
-\subsubsection{The model without the Relationship between Time Windows of Supplier Operation and Customer Requirement}
+\subsubsection{Evaluation of the model without the Relationship between Time Windows of Supplier Operation and Customer Requirement}
 For service time distribution, we generate the actual service time via a random function. The data we use are listed as follows:\\
 
 The result is showed in the figures:\\
 
-\subsubsection{The model with the Relationship between Time Windows of Supplier Operation and Customer Requirement}
+\subsubsection{Evaluation of the model with the Relationship between Time Windows of Supplier Operation and Customer Requirement}
 In this model we have two coefficients $c$ and $\beta$.
+
+\section*{Acknowledgement}
 \begin{thebibliography}{1}
 \bibitem{Liu}  Liu WH, Yang Y, Li X, Xu HT, Xie D. A time scheduling model of logistics service supply chain with mass customized logistics service. Discrete Dynamics in Nature and Society. 2012;2012:18 pages.482978
 \bibitem{Convex} Stephen Boyd,Lieven Vandenberghe. Convex Optimization [M]
 \end{thebibliography}
+\
 \end{document}

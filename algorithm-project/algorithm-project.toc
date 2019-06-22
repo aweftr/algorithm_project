@@ -4,11 +4,11 @@
 \contentsline {subsection}{\numberline {2.2}Notation}{3}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Assumption}{4}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Model Building}{5}{subsection.2.4}
-\contentsline {subsubsection}{\numberline {2.4.1}Ignore Customer Requirement}{5}{subsubsection.2.4.1}
-\contentsline {subsubsection}{\numberline {2.4.2}considering the Customer Requirement}{6}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.1}The model without the Relationship between Time Windows of Supplier Operation and Customer Requirement}{5}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}The model with the Relationship between Time Windows of Supplier Operation and Customer Requirement}{6}{subsubsection.2.4.2}
 \contentsline {section}{\numberline {3}Problem Analysis and Algorithm Design}{7}{section.3}
 \contentsline {section}{\numberline {4}Theoretical Analysis and Performance Evaluation}{8}{section.4}
 \contentsline {subsection}{\numberline {4.1}Theoretical Analysis}{8}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Performance Evaluation}{8}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}The model without the Relationship between Time Windows of Supplier Operation and Customer Requirement}{8}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}The model with the Relationship between Time Windows of Supplier Operation and Customer Requirement}{8}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Evaluation of the model without the Relationship between Time Windows of Supplier Operation and Customer Requirement}{8}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Evaluation of the model with the Relationship between Time Windows of Supplier Operation and Customer Requirement}{8}{subsubsection.4.2.2}
