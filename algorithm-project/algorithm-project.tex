@@ -14,6 +14,7 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{amsmath}
+%\usepackage{algorithm}
 %\newtheorem{theorem}{Theorem}
 %\newtheorem{lemma}[theorem]{Lemma}
 %\newtheorem{proposition}[theorem]{Proposition}
@@ -117,6 +118,10 @@ $k$ & Before $k$th process the service is mass and after it will be customized\\
 $Y$ & The total number of orders\\
 \specialrule{0.05em}{3pt}{3pt}
 $Y_j$ & The number of orders from $j$th customer\\
+\specialrule{0.05em}{3pt}{3pt}
+$c$ & The cost coefficient\\
+\specialrule{0.05em}{3pt}{3pt}
+$\beta$ & The requirement coefficient\\ 
 			\hline
 \caption{notation of the model}
 \end{longtable}
@@ -147,7 +152,7 @@ where
 	f_3=\sum_{i=1}^{i=k-1}|(T_i^{exp}-T_i-T_i^{ext})|P_i\times Y+\sum_{i=k}^{I_j}\sum_{j=1}^{J_0}|(T_{ij}^{exp}-T_{ij}-T_{ij}^{ext})|P_{ij}\times Y_j\\
 \end{equation}
 $f_1$ is the cost of mass service and $f_2$ is the cost of customized service. $f_3$ is the penalty.\\
-We define the satisfaction $Z_2$ via the relationship between the expected time and the actual time and the relationship between the cost of normal service and the total cost:
+We define the satisfaction $Z_2$ via the relationship between the expected time and the actual time and the relationship between the cost of normal service and the total cost\cite{Liu}:
 \begin{equation}
 \begin{split}
 	Z_2=(\sum_{i=1}^{i=k-1}(1-|\frac{T_i^{exp}-T_i}{T_i^{exp}}|)(\frac{T_iC_i}{T_iC_i+T_i^{ext}C_i^{ext}})+\sum_{i=k}^{I_j}\sum_{j=1}^{J_0}(1-|\frac{T_{ij}^{exp}-T_{ij}}{T_{ij}^{exp}}|)(\frac{T_{ij}C_{ij}}{T_{ij}C_{ij}+T_{ij}^{ext}C_{ij}^{ext}}))\\
@@ -180,12 +185,63 @@ $K_1$ and $K_2$ represents the weight of $Z_1$ and $Z_2$.
 \subsubsection{considering  the Customer Requirement}
 Considering the relationship between time windows of supplier operation and customer requirement, we introduce a new variable $Z_3$ to describe the closeness of the actual order completion time and its customer requirement.
 \begin{equation}
-	Z_3=\sum_{j=1}^{J_0}\frac{T_j^{exp}-T_j}{T_j^{exp}}\frac{1}{J_0}
+	Z_3=\sum_{j=1}^{J_0}|\frac{T_j^{exp}-T_j}{T_j^{exp}}|\frac{1}{J_0}
 \end{equation} 
 where
 \begin{equation}
-	T_j=\sum_{i=1}^{i=k-1}(T_i+T_i^{ext})+\sum_{i=k}^{I_j}\sum_{j=1}^{J_0}(T_{ij}+T_{ij}^{ext})
+	T_j=\sum_{i=1}^{I_j}(T_i+T_i^{ext}+T_{ij}+T_{ij}^{ext})
 \end{equation}
 $T_j$ is the actual time to complete customer$j$'s order.\\
-Hence, there are three 
+Hence, there are three objects. To simplify the multiobjective programming model, we restrain $Z_1$ to 
+\begin{equation}
+ Z_1\leq Z_1^{min}\times(1+c)
+\end{equation} 
+where $c$ is the cost coefficient and 
+\begin{equation}
+Z_1^{min}= \sum_{i=1}^{i=k-1}T_iC_i\times Y+\sum_{i=k}^{I_j}\sum_{j=1}^{J_0}(T_{ij}C_{ij}\times Y_j
+\end{equation}
+Considering the requirement of the customer we also add a constraint of the time required by customers: $T_j\leq T_j^{exp}(1+\beta)$. Then we got:
+\begin{alignat}{2}
+\min \quad & K_3Z_3+K_2(1-Z_2)\\
+\mbox{s.t.}\quad
+& T_j\leq T_j^{exp}(1+\beta)\\
+& T_{i+1}^-\leq T_i^{exp}-T_i-T_i^{ext}\leq T_{i+1}^+ \quad ,i\leq k-1\\
+& T_{(i+1)j}^-\leq T_{ij}^{exp}-T_{ij}-T_{ij}^{ext}\leq T_{(i+1)j}^+ \quad, i>k\\
+& (1-|\frac{T_i^{exp}-T_i}{T_i^{exp}}|)(\frac{T_iC_i}{T_iC_i+T_i^{ext}C_i^{ext}})\geq U_i\\
+& (1-|\frac{T_{ij}^{exp}-T_{ij}}{T_{ij}^{exp}}|)(\frac{T_{ij}C_{ij}}{T_{ij}C_{ij}+T_{ij}^{ext}C_{ij}^{ext}})\geq U_{ij}\\
+& Z_1\leq Z_{1min}
+\end{alignat}
+convert it into LP:
+\begin{alignat}{2}
+\min \quad & K_3Z_3+K_2(1-Z_2)\\
+\mbox{s.t.}\quad
+& T_j\leq T_j^{exp}(1+\beta)\\
+& T_{i+1}^-\leq T_i^{exp}-T_i-T_i^{ext}\leq T_{i+1}^+ \quad ,i\leq k-1\\
+& T_{(i+1)j}^-\leq T_{ij}^{exp}-T_{ij}-T_{ij}^{ext}\leq T_{(i+1)j}^+ \quad, i>k\\
+& (1-|\frac{T_i^{exp}-T_i}{T_i^{exp}}|)^{-1}(1+\frac{T_i^{ext}C_i^{ext}}{T_iC_i})\leq U_i^{-1}\\
+& (1-|\frac{T_{ij}^{exp}-T_{ij}}{T_{ij}^{exp}}|)^{-1}(\frac{T_{ij}^{ext}C_{ij}^{ext}}{T_{ij}C_{ij}})\leq U_{ij}^{-1}\\
+& Z_1\leq Z_{1min}
+\end{alignat}
+$K_2$ and $K_3$ represents the weight of $Z_2$ and $Z_3$
+\section{Problem Analysis and Algorithm Design}
+Our defined problem is a multiple-objective programming problem. We simplify the problem with linear weight method and get the synthesized objective function. Our single-objective model could be converted into LP. Hence the defined problem should be in $P$ and we could use various algorithms to solve the problem. Using Ellipsoid Method the time complexity would be $O(n^6L^2)$ where $n$ is the dimension of variables and $L$ is the length of input. If we solve the problem using Interior-Point Method the time complexity would be $O(n^{3.5}L^2)$.\\
+For example, Barrier Method\cite{Convex}:\\
+\begin{algorithm}[H]
+\caption{Barrier Method}
+ given strictly feasible\\
+ \While{True}{
+	Centering step. Compute by minimizing, subject to, starting at.\\
+	Update.\\
+	Stopping criterion. quit if.\\
+	increase.\\
+	}
+\end{algorithm}
+In this project we use Cplex to solve the LP problem.
+\section{Theoretical Analysis and Performance Evaluation}
+
+
+\begin{thebibliography}{1}
+\bibitem{Liu}  Liu WH, Yang Y, Li X, Xu HT, Xie D. A time scheduling model of logistics service supply chain with mass customized logistics service. Discrete Dynamics in Nature and Society. 2012;2012:18 pages.482978
+\bibitem{Convex} Stephen Boyd,Lieven Vandenberghe. Convex Optimization [M]
+\end{thebibliography}
 \end{document}
